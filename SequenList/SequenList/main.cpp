@@ -2,7 +2,7 @@
 //  main.cpp
 //  SequenList
 //
-//  Created by 李海明 on 16/7/20. 老李飞刀
+//  Created by 李海明 on 16/7/20.
 //  Copyright © 2016年 李海明. All rights reserved.
 //
 
@@ -13,8 +13,8 @@ using namespace std;
 class SequenList
 {
 public:
-     void Initiate(int n);//初始化
-     int SetData(DataType x, int i);//设置链表元素
+    void Initiate(int n);//初始化
+    int SetData(DataType x, int i);//设置链表元素
     int Length();//获取表厂
     int Insert(DataType x, int i);//插入
     int Deleted(int i);//删除
@@ -36,45 +36,45 @@ int SequenList::Insert(DataType x, int i)
 {
     int j;
     if(len>=MAXSIZE)
-        {
+    {
         cout<<"overflow!"<<endl;
         return 0;
-            }else if ((i<1)||(i>len+1))
-                {
-                    cout<<"位置不对！" <<endl;
-                    return 0;
-                    }else{
-                        for(j=len; j>=i; j--)
-                            {
-                            data[j]=data[j-1];
-                                }
-                        data[i-1]=x;
-                        len++;
-                        return 1;
-                        }
+    }else if ((i<1)||(i>len+1))
+    {
+        cout<<"位置不对！" <<endl;
+        return 0;
+    }else{
+        for(j=len; j>=i; j--)
+        {
+            data[j]=data[j-1];
+        }
+        data[i-1]=x;
+        len++;
+        return 1;
+    }
 }
 
 int SequenList::Deleted(int i)
 {
     int j;
     if ((i<1)||(i>len))
+    {
+        cout<<"位置不对！" <<endl;
+        return 0;
+    }else{
+        for(j=i;j<=len;j++)
         {
-            cout<<"位置不对！" <<endl;
-            return 0;
-            }else{
-                for(j=i;j<=len;j++)
-                    {
-                        data[j-1]=data[j];
-                        }
-                len--;
-                return 1;
-                }
+            data[j-1]=data[j];
+        }
+        len--;
+        return 1;
+    }
 }
 
 
 int SequenList::Locate(DataType x)
 {
-int j=0;
+    int j=0;
     while((j<len)&&(data[j]!=x)) j++;
     if(j<len) return j+1;
     else return 0;
@@ -83,9 +83,9 @@ int j=0;
 int SequenList::Get(int i)
 {
     if ((i<1)||(i>len))
-        {
-            cout<<"位置不对！" <<endl;
-            return NULL;
+    {
+        cout<<"位置不对！" <<endl;
+        return NULL;
     }else return data[i-1];
 }
 
@@ -97,36 +97,36 @@ int SequenList::Length()
 void SequenList::Out()//对的
 {
     for(int i=0;i<len;i++)
-        {
-            cout<<data[i]<<endl;
-            }
+    {
+        cout<<data[i]<<endl;
+    }
 }
 
 int SequenList::SetData(DataType x, int i)
 {
     if(len>=MAXSIZE)
-        {
-            cout<<"overflow!"<<endl;
-    return 0;
-            }else if ((i<0)||(i>len))
-                {
+    {
+        cout<<"overflow!"<<endl;
+        return 0;
+    }else if ((i<0)||(i>len))
+    {
         cout<<"位置不对！" <<endl;
         return 0;
-            }else{
-                
-                        data[i-1]=x;
-                    //        len++;
-                        return 1;
-                }
+    }else{
+        
+        data[i-1]=x;
+        //        len++;
+        return 1;
+    }
 }
 
 int main(int argc, const char * argv[]) {
- // insert code here...
-    //    std::cout << "Hello, World!\n";
+    // insert code here...
+    // std::cout << "Hello, World!\n";
     SequenList L;
     L.Initiate(3);
-    //    L.Insert(20, 3);
-    //    L.Insert(12, 1);
+    //  L.Insert(20, 3);
+    //  L.Insert(12, 1);
     L.SetData(11, 1);
     L.SetData(12, 2);
     L.SetData(13, 3);
